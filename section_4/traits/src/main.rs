@@ -2,60 +2,58 @@
 struct Hero {
     name: String,
     energy: u16,
-    strike: bool
+    strike: bool,
 }
 
 #[derive(Debug)]
 struct Goblin {
     energy: u16,
-    strike: bool
+    strike: bool,
+}
+#[allow(dead_code)]
+impl Hero {
+    fn jump(&self) {
+        //some logic for jumping
+    }
 }
 
-impl Hero{
-	fn jump(&self){
-		//some logic for jumping
-	}
+trait StrikeTrait {
+    fn strike(&mut self);
 }
 
-
-trait StrikeTrait{
-	fn strike(&mut self);
-}
-
-impl StrikeTrait for Hero{
-	fn strike(&mut self){
-		self.strike = true;
-	}
+impl StrikeTrait for Hero {
+    fn strike(&mut self) {
+        self.strike = true;
+    }
 }
 
 impl StrikeTrait for Goblin {
-    fn strike(&mut self){
-		self.strike = false;
-	}
+    fn strike(&mut self) {
+        self.strike = false;
+    }
 }
 
-
 fn main() {
-    let mut hero = Hero{
-    	name: "Dave".to_string(),
-    	energy: 100,
-    	strike: false
+    let mut hero = Hero {
+        name: "Dave".to_string(),
+        energy: 100,
+        strike: false,
     };
 
-    let mut goblin = Goblin{
-    	energy: 99,
-    	strike: true
+    let mut goblin = Goblin {
+        energy: 99,
+        strike: true,
     };
 
-    println!("{:#?}", hero);
+    println!("{:?}", hero);
 
     hero.strike();
 
-    println!("{:#?}", hero);
+    println!("{:?}", hero);
 
-    println!("{:#?}", goblin);
+    println!("{:?}", goblin);
 
     goblin.strike();
 
-    println!("{:#?}", goblin);
+    println!("{:?}", goblin);
 }
