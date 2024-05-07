@@ -1,4 +1,4 @@
 fn main() {
-	let text = "Hello, Rust!";
+    let text = "Hello, Rust!";
     println!("{}", text);
 }
