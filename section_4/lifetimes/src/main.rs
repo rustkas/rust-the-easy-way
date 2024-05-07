@@ -17,10 +17,10 @@ fn main() {
     let mut x = 5;
     x = increase_by_five(&x);
     println!("{}", x);
-    
+
     let ts = TestStruct { x: &5 };
 
     println!("{:?}", ts.x);
-    
+
     println!("{:?}", ts.return_x());
 }

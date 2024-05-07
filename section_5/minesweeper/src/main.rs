@@ -1,15 +1,14 @@
+#![allow(unused_must_use)]
 mod structs;
 extern crate rand;
 
 use std::io::stdin;
 use structs::MineField;
 
-
 fn main() {
-
-    let mut mine_field = MineField{
+    let mut mine_field = MineField {
         size: (3, 3),
-        mines: Vec::new()
+        mines: Vec::new(),
     };
 
     &mine_field.generate_mines();
@@ -23,8 +22,8 @@ fn main() {
 
     let mut counter = 0;
 
-    loop{
-        if counter == 5{
+    loop {
+        if counter == 5 {
             println!("Congrats, you've won!");
         }
         println!("Enter coordinate x: ");
@@ -52,17 +51,14 @@ fn main() {
         if mine_field.find_by_coordinates(x, y) {
             println!("The game is over :(");
             break;
-        }
-        else {
+        } else {
             println!("Good job!");
         }
 
         counter = counter + 1;
-
     }
 
     println!("The mines are marked with o: ");
 
     &mine_field.print_fields_solved();
-
 }
